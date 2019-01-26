@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet", href="{% static 'products/css/bootstrap.min.css' %}">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ARX Technologies Payment Info</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+<body>
+{% include 'products/navigation_bar.html' %}
+
+            <br>
+            <div class="card-header" style="width: fit-content; margin:0 auto;" align="center">
+
+                <h4 style="color: #007bff">About Us</h4> <br>
+                <p style="font-size: 18px;">
+                You can ask anything to us!<br><br>
+                Emre Şahin: <br>
+                E-mail: arxtechnologies@gmail.com<br>
+                Linked-in: <a href="https://www.linkedin.com/in/emre-şahin-8474a6147">linkedin.com/in/emre-şahin</a><br><br>
+                Arda Peçel:<br>
+                E-mail: ardapecel2@gmail.com<br>
+                Linked-in: <a href="https://www.linkedin.com/in/arda-pecel-9984b8162">linkedin.com/in/arda-pecel</a><br>
+                </p>
+            </div>
+            <br>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; ARX Technologies 2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+<script src="{% static 'products/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

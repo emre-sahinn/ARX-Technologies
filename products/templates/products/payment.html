@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet", href="{% static 'products/css/bootstrap.min.css' %}">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ARX Technologies Payment Info</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+<body>
+{% include 'products/navigation_bar.html' %}
+
+
+        <div class="card-header">
+            <h4 style="color: #1c7430"><u>Your Order Successfully Received.</u></h4>
+                <a style="font-size: 22px; color: red">*Please check following information before payment.</a><br>
+                <div class="card-header" style="width: fit-content">
+                    Your Name: <a style="font-size: 20px;color: #6f42c1">{{ user_order.user_name}}</a><br>
+                    Product: <a style="font-size: 20px;color: #6f42c1">{{ user_order.product_name }}</a><br>
+                    Specifications: <a style="font-size: 20px;color: #6f42c1">{{ user_order.product_order}}</a><br>
+                    Address: <a style="font-size: 20px;color: #6f42c1">{{ user_order.user_address}}</a><br><br>
+                    - - - - - - - - - - - - - -<br>
+                     <a style="font-size: 24px; color: darkred">Total:</a> <a style="font-size: 24px; color: #0056b3">{{ user_order.total_price}}₺</a><br>
+                    - - - - - - - - - - - - - -
+                </div>
+            <br>
+
+            <div class="card-header" style="width: fit-content">
+                <p style="font-size: 18px; color: #1e7e34">
+                Info: Your order will be produced when payment is done.<BR>
+                Our IBANN: <a style="color: #007bff">TR340004600350888000184176</a>
+                </p>
+            </div>
+            <br>
+        </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; ARX Technologies 2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+<script src="{% static 'products/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

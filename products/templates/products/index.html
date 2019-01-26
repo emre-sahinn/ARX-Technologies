@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet", href="{% static 'products/css/bootstrap.min.css' %}">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ARX Technologies Homepage</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+<body>
+{% include 'products/navigation_bar.html' %}
+
+
+
+<!-- Page Content -->
+    <div class="container">
+
+
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+        <br>
+          <div class="row">
+            {% if products_list %}
+                {% for product in products_list %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                      <div class="card h-100">
+                        <a href="{% url 'detail' product.id %}"><img class="card-img-top" src="{% static product.product_image %}" alt=""></a>
+                        <div class="card-body">
+                          <h4 class="card-title">
+                            <a href="{% url 'detail' product.id %}">{{ product.product_text }}</a>
+                          </h4>
+                            <p class="card-text">{{ product.product_text2 }}</p>
+                          <h5>{{ product.product_price }}₺</h5>
+                        </div>
+                        <div class="card-footer">
+                          {{ product.product_tag }}
+                        </div>
+                      </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.col-lg-9 -->
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; ARX Technologies 2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+<script src="{% static 'products/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

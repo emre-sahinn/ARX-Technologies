@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Details</title>
+    <link rel="stylesheet", href="{% static 'products/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+{% include 'products/navigation_bar.html' %}
+<link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+
+
+<div style="font-size: 20px; color: #007bff" class="card-header">
+    Product: {{ product.product_text }}
+  </div>
+
+{% if error_message %}
+    <div class="text-nowrap bd-highlight">
+        <h2><a style="padding-left: 20px; font-size: 20px" class="text-danger">{{ error_message }}</a></h2>
+    </div>
+{% endif %}
+
+
+
+    <form action="{% url 'order' product.id %}" method="post">
+    {% csrf_token %}
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+        <br>
+          <div class="row">
+            {% if feature_list %}
+                {% for product in feature_list %}
+                    <div class="col-lg-4 col-md-3 mb-8">
+                      <div class="card h-100" style="background-color: blanchedalmond;" >
+                        <div class="card-body">
+                          <h4 class="card-title">
+                              <label style="left: -25px; top: -15px; border-color: transparent" for="choice{{ forloop.counter }}">{{ product.feature }}</label>
+                          </h4>
+                            <p class="card-text">{{ product.feature_text }}</p>
+                            <p class="card-text">Stock: {{ product.feature_stock }}</p>
+                            <h5>{{ product.feature_price }}₺</h5>
+                        </div>
+                            <input style="display: none;" type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ product.id }}">
+                            <label style="border-color: white; border-width: 5px;" for="choice{{ forloop.counter }}">
+                                <h3 style="color: #007bff;margin-left: auto; margin-right: auto;width: 25%">Add</h3>
+                            </label>
+                      </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+          </div>
+          <!-- /.row -->
+        <div class="card-header">
+
+            Name, Surname: <input type="text" name="username" id="username" value="">
+            Address (Zip code, street, etc.): <input type="text" name="address_line" id="address_line" value="">
+            <br>
+            <br>
+            <p style="font-size: 16px">Note: By proceed this stage, you are agreeing to our <a href="#" style="color: blue">sales policy</a>.</p>
+            <input type="submit" value="Order" class="btn btn-primary" style="margin-left: 0px; margin-right: auto;width: 25%;display: block ;font-size: 20px">
+        </div>
+        </div>
+
+        <!-- /.col-lg-9 -->
+
+    </form>
+<!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; ARX Technologies 2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+<script src="{% static 'products/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
